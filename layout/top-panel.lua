@@ -11,7 +11,7 @@ local dpi = require("beautiful").xresources.apply_dpi
 
 local icons = require("theme.icons")
 
-local add_button = mat_icon_button(mat_icon(icons.plus, dpi(18)))
+local add_button = mat_icon_button(mat_icon(icons.maia, dpi(18)))
 add_button:buttons(gears.table.join(awful.button({}, 1, nil, function()
   awful.spawn(awful.screen.focused().selected_tag.defaultApp,
               {tag = _G.mouse.screen.selected_tag, placement = awful.placement.bottom_right})

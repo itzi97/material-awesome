@@ -75,7 +75,7 @@ awful.key({modkey, "Control"}, "n", function()
     c:raise()
   end
 end, {description = "restore minimized", group = "client"}), -- Dropdown application
-awful.key({modkey}, "`", function()
+awful.key({modkey}, "'", function()
   _G.toggle_quake()
 end, {description = "dropdown application", group = "launcher"}), -- Widgets popups
 awful.key({altkey}, "h", function()

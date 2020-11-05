@@ -18,11 +18,14 @@ theme.accent = mat_colors.pink
 
 -- Background
 theme.background = mat_colors.blue_grey
-
 theme.background.hue_800 = mat_colors.blue_grey.hue_800
 theme.background.hue_900 = mat_colors.blue_grey.hue_900
 
 local awesome_overrides = function(theme)
-  --
+  -- Borders
+  theme.border_width = dpi(1)
+
+  -- Icon theme
+  theme.icon_theme = "Papirus-Dark-Maia"
 end
 return {theme = theme, awesome_overrides = awesome_overrides}
