@@ -5,16 +5,21 @@ local get_dpi = require("beautiful").xresources.get_dpi
 return {
   -- List of apps to start by default on some actions
   default = {
-    browser = "brave",
+    -- Default programs
+    browser = os.getenv("BROWSER") or "brave",
     terminal = "kitty",
-    pdf_viewer = "evince",
+    pdf_viewer = os.getenv("PDFVIEWER") or "evince",
     -- pdf_viewer = "zathura",
+    editor = os.getenv("EDITOR") or "vim",
+    -- Screenshot tool
     screenshot_full = "flameshot full -c -p " .. os.getenv("HOME") .. "/Pictures/Screenshots/",
     screenshot_gui = "flameshot gui  -p " .. os.getenv("HOME") .. "/Pictures/Screenshots/",
-    editor = "nvim",
+    -- Menu
     rofi = "rofi -dpi " .. get_dpi() .. " -width " .. with_dpi(400) .. " -show drun -theme " ..
       filesystem.get_configuration_dir() .. "/configuration/rofi.rasi",
+    -- Lock
     lock = "i3lock-fancy-rapid 5-3 -k --timecolor=ffffffff --datecolor=ffffffff",
+    -- Drop down terminal
     quake = "alacritty --title QuakeTerminal",
   },
   -- List of apps to start once on start-up
