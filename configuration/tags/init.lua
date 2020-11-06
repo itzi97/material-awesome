@@ -12,9 +12,10 @@ local tags = {
   {icon = icons.lab, type = "any", defaultApp = "", screen = 1},
 }
 
-local default_layout = awful.layout.suit.spiral.dwindle
+-- local default_layout = awful.layout.suit.spiral.dwindle
+local default_layout = awful.layout.suit.tile
 
-awful.layout.layouts = {awful.layout.suit.tile, default_layout, awful.layout.suit.max}
+awful.layout.layouts = {default_layout, awful.layout.suit.max}
 
 awful.screen.connect_for_each_screen(
   function(s)

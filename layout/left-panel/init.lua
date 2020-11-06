@@ -5,7 +5,7 @@ local apps = require("configuration.apps")
 local dpi = require("beautiful").xresources.apply_dpi
 
 local left_panel = function(screen)
-  local action_bar_width = dpi(36)
+  local action_bar_width = dpi(48)
   local panel_content_width = dpi(400)
 
   local panel = wibox {
@@ -16,7 +16,7 @@ local left_panel = function(screen)
     y = screen.geometry.y,
     ontop = true,
     bg = beautiful.background.hue_800,
-    fg = beautiful.fg_normal
+    fg = beautiful.fg_normal,
   }
 
   panel.opened = false
@@ -31,13 +31,11 @@ local left_panel = function(screen)
     x = screen.geometry.x,
     y = screen.geometry.y,
     width = screen.geometry.width,
-    height = screen.geometry.height
+    height = screen.geometry.height,
   }
 
   function panel:run_rofi()
-    _G.awesome.spawn(apps.default.rofi, false, false, false, false, function()
-      panel:toggle()
-    end)
+    _G.awesome.spawn(apps.default.rofi, false, false, false, false, function() panel:toggle() end)
   end
 
   local openPanel = function(should_run_rofi)
@@ -46,9 +44,7 @@ local left_panel = function(screen)
     panel.visible = false
     panel.visible = true
     panel:get_children_by_id("panel_content")[1].visible = true
-    if should_run_rofi then
-      panel:run_rofi()
-    end
+    if should_run_rofi then panel:run_rofi() end
     panel:emit_signal("opened")
   end
 
@@ -68,9 +64,7 @@ local left_panel = function(screen)
     end
   end
 
-  backdrop:buttons(awful.util.table.join(awful.button({}, 1, function()
-    panel:toggle()
-  end)))
+  backdrop:buttons(awful.util.table.join(awful.button({}, 1, function() panel:toggle() end)))
 
   panel:setup{
     layout = wibox.layout.align.horizontal,
@@ -81,9 +75,9 @@ local left_panel = function(screen)
       widget = wibox.container.background,
       visible = false,
       forced_width = panel_content_width,
-      {require("layout.left-panel.dashboard")(screen, panel), layout = wibox.layout.stack}
+      {require("layout.left-panel.dashboard")(screen, panel), layout = wibox.layout.stack},
     },
-    require("layout.left-panel.action-bar")(screen, panel, action_bar_width)
+    require("layout.left-panel.action-bar")(screen, panel, action_bar_width),
   }
   return panel
 end

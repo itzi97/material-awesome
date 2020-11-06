@@ -37,7 +37,7 @@ local globalKeys = awful.util.table.join(
         if _G.client.focus then _G.client.focus:raise() end
       end, {description = "go back", group = "client"}
     ), -- Programms
-    awful.key({modkey}, "l", function() awful.spawn(apps.default.lock) end), awful.key(
+    awful.key({modkey, "Shift"}, "l", function() awful.spawn(apps.default.lock) end), awful.key(
       {}, "Print", function() awful.spawn(apps.default.screenshot_full) end,
       {description = "screenshot entire screen", group = "hotkeys"}
     ), awful.key(
