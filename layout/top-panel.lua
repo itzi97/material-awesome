@@ -11,7 +11,7 @@ local dpi = require("beautiful").xresources.apply_dpi
 
 local icons = require("theme.icons")
 
-local add_button = mat_icon_button(mat_icon(icons.maia, dpi(24)))
+local add_button = mat_icon_button(mat_icon(icons.maia, dpi(18)))
 add_button:buttons(
   gears.table.join(
     awful.button(
@@ -42,23 +42,23 @@ end
 
 local TopPanel = function(s, offset)
   local offsetx = 0
-  if offset == true then offsetx = dpi(48) end
+  if offset == true then offsetx = dpi(36) end
   local panel = wibox(
     {
       ontop = true,
       screen = s,
-      height = dpi(48),
+      height = dpi(36),
       width = s.geometry.width - offsetx,
       x = s.geometry.x + offsetx,
       y = s.geometry.y,
       stretch = false,
       bg = beautiful.background.hue_800,
       fg = beautiful.fg_normal,
-      struts = {top = dpi(48)},
+      struts = {top = dpi(36)},
     }
   )
 
-  panel:struts({top = dpi(48)})
+  panel:struts({top = dpi(36)})
 
   panel:setup{
     layout = wibox.layout.align.horizontal,
