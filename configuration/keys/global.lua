@@ -36,7 +36,7 @@ awful.key({modkey}, "l", function()
 end), awful.key({}, "Print", function()
   awful.util.spawn_with_shell("maim -s | xclip -selection clipboard -t image/png")
 end), -- Standard program
-awful.key({modkey, "Shift"}, "Enter", function()
+awful.key({modkey, "Shift"}, "Return", function()
   awful.spawn(apps.default.terminal)
 end, {description = "open a terminal", group = "launcher"}),
 awful.key({modkey, "Control"}, "r", _G.awesome.restart,
