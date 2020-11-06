@@ -55,9 +55,7 @@ local awesome_overrides = function(theme)
   theme.tooltip_bg = "#232323"
   theme.tooltip_border_color = "#232323"
   theme.tooltip_border_width = 0
-  theme.tooltip_shape = function(cr, w, h)
-    gears.shape.rounded_rect(cr, w, h, dpi(8))
-  end
+  theme.tooltip_shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, dpi(8)) end
 
   -- Layout
 

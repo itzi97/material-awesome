@@ -12,7 +12,9 @@ local tags = {
   {icon = icons.lab, type = "any", defaultApp = "", screen = 1},
 }
 
-awful.layout.layouts = {awful.layout.suit.tile, awful.layout.suit.max}
+local default_layout = awful.layout.suit.spiral.dwindle
+
+awful.layout.layouts = {awful.layout.suit.tile, default_layout, awful.layout.suit.max}
 
 awful.screen.connect_for_each_screen(
   function(s)
@@ -21,7 +23,7 @@ awful.screen.connect_for_each_screen(
         i, {
           icon = tag.icon,
           icon_only = true,
-          layout = awful.layout.suit.tile,
+          layout = default_layout,
           gap_single_client = false,
           gap = 8,
           screen = s,

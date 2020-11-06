@@ -23,7 +23,7 @@ theme.background.hue_900 = mat_colors.blue_grey.hue_900
 
 local awesome_overrides = function(theme)
   -- Borders
-  theme.border_width = dpi(1)
+  theme.border_width = dpi(2)
 
   -- Icon theme
   theme.icon_theme = "Papirus-Dark-Maia"
