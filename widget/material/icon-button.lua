@@ -1,7 +1,7 @@
-local wibox = require('wibox')
-local gears = require('gears')
-local clickable_container = require('widget.material.clickable-container')
-local dpi = require('beautiful').xresources.apply_dpi
+local wibox = require("wibox")
+local gears = require("gears")
+local clickable_container = require("widget.material.clickable-container")
+local dpi = require("beautiful").xresources.apply_dpi
 
 function build(imagebox, args)
   -- return wibox.container.margin(container, 6, 6, 6, 6)
@@ -9,20 +9,20 @@ function build(imagebox, args)
     wibox.widget {
       wibox.widget {
         imagebox,
-        top = dpi(6),
-        left = dpi(6),
-        right = dpi(6),
-        bottom = dpi(6),
-        widget = wibox.container.margin
+        top = dpi(4.5),
+        left = dpi(4.5),
+        right = dpi(4.5),
+        bottom = dpi(4.5),
+        widget = wibox.container.margin,
       },
       shape = gears.shape.circle,
-      widget = clickable_container
+      widget = clickable_container,
     },
-    top = dpi(6),
-    left = dpi(6),
-    right = dpi(6),
-    bottom = dpi(6),
-    widget = wibox.container.margin
+    top = dpi(4.5),
+    left = dpi(4.5),
+    right = dpi(4.5),
+    bottom = dpi(4.5),
+    widget = wibox.container.margin,
   }
 end
 

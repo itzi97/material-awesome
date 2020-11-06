@@ -16,30 +16,24 @@ return function(screen, panel, action_bar_width)
   -- local textclock = wibox.widget.textclock( "<span font=\"Roboto Mono bold 11\">%I\n%M</span>\n<span font=\"Roboto Mono bold 9\">%p</span>")
   -- textclock.forced_height = 56
 
-  local clock_widget = wibox.container.margin(textclock, dpi(13), dpi(13), dpi(8), dpi(8))
+  local clock_widget = wibox.container.margin(textclock, dpi(8), dpi(8), dpi(4), dpi(4))
   local systray = wibox.widget.systray()
   systray:set_horizontal(false)
-  systray:set_base_size(32)
+  systray:set_base_size(36)
 
-  local menu_icon = wibox.widget {icon = icons.menu, size = dpi(32), widget = mat_icon}
+  local menu_icon = wibox.widget {icon = icons.menu, size = dpi(36), widget = mat_icon}
 
   local home_button = wibox.widget {
     wibox.widget {menu_icon, widget = clickable_container},
     bg = beautiful.primary.hue_500,
-    widget = wibox.container.background
+    widget = wibox.container.background,
   }
 
-  home_button:buttons(gears.table.join(awful.button({}, 1, nil, function()
-    panel:toggle()
-  end)))
+  home_button:buttons(gears.table.join(awful.button({}, 1, nil, function() panel:toggle() end)))
 
-  panel:connect_signal("opened", function()
-    menu_icon.icon = icons.close
-  end)
+  panel:connect_signal("opened", function() menu_icon.icon = icons.close end)
 
-  panel:connect_signal("closed", function()
-    menu_icon.icon = icons.menu
-  end)
+  panel:connect_signal("closed", function() menu_icon.icon = icons.menu end)
 
   return wibox.widget {
     id = "action_bar",
@@ -50,19 +44,19 @@ return function(screen, panel, action_bar_width)
       layout = wibox.layout.fixed.vertical,
       home_button,
       -- Create a taglist widget
-      TagList(screen)
+      TagList(screen),
     },
     -- s.mytasklist, -- Middle widget
     nil,
     {
       -- Right widgets
       layout = wibox.layout.fixed.vertical,
-      wibox.container.margin(systray, dpi(13), dpi(13)),
+      wibox.container.margin(systray, dpi(9), dpi(9)),
       require("widget.package-updater"),
       require("widget.wifi"),
       require("widget.battery"),
       -- Clock
-      clock_widget
-    }
+      clock_widget,
+    },
   }
 end
