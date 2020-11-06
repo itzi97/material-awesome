@@ -53,10 +53,10 @@ local globalKeys = awful.util.table.join(
     ), awful.key(
       {modkey, "Control"}, "q", _G.awesome.quit, {description = "quit awesome", group = "awesome"}
     ), awful.key(
-      {modkey}, "l", function() awful.tag.incmwfact(0.05) end,
+      {modkey}, "l", function() awful.tag.incmwfact(0.025) end,
       {description = "increase master width factor", group = "layout"}
     ), awful.key(
-      {modkey}, "h", function() awful.tag.incmwfact(-0.05) end,
+      {modkey}, "h", function() awful.tag.incmwfact(-0.025) end,
       {description = "decrease master width factor", group = "layout"}
     ), awful.key(
       {modkey, "Shift"}, "h", function() awful.tag.incnmaster(1, nil, true) end,
