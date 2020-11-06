@@ -35,9 +35,10 @@ awful.key({modkey}, "l", function()
   awful.spawn(apps.default.lock)
 end), awful.key({}, "Print", function()
   awful.spawn(apps.default.screenshot_full)
-end, {description = "screenshot entire screen"}), awful.key({modkey}, "Print", function()
+end, {description = "screenshot entire screen", group = "hotkeys"}),
+awful.key({modkey}, "Print", function()
   awful.spawn(apps.default.screenshot_gui)
-end, {description = "screenshot gui"}), -- Standard program
+end, {description = "screenshot gui", group = "hotkeys"}), -- Standard program
 awful.key({modkey}, "Return", function()
   awful.spawn(apps.default.terminal)
 end, {description = "open a terminal", group = "launcher"}),
